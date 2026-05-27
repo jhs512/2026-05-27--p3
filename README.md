@@ -1,4 +1,4 @@
-# 세팅
+# 세팅, mattpocock/skills 스킬 설치
 
 ```bash
 mkdir -p projects/p3
@@ -7,4 +7,13 @@ git int
 git remote add origin 리포지터리-주소
 npx skills@latest add mattpocock/skills # 전체 설치(심볼릭 링크 X, copy)
 msg=001 && git add . && git commit -m "$msg" && git tag $msg && git push origin main && git push origin --tags $msg
+```
+
+# CLUADE.md 세팅
+```md
+# 작업지침
+- 한국어 사용
+- /caveman 스킬 사용
+- 일반적인 작업 흐름 : /grill-with-docs, /to-prd, /to-issue, /tdd and /diagnosis, /improve-codebase-architecture(이 스킬은 필요할 때만 사용)
+- 최대한 matt 스킬들을 활용
 ```
