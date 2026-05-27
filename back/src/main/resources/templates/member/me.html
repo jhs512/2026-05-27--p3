@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>내 정보</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">내 정보</h2>
+
+            <div class="space-y-1 mb-4">
+                <p>아이디: <span class="font-semibold" th:text="${member.username}">username</span></p>
+                <p>가입일: <span th:text="${#temporals.format(member.createDate, 'yyyy-MM-dd HH:mm')}">날짜</span></p>
+            </div>
+
+            <form th:action="@{/member/me}" th:object="${modifyForm}" method="post" class="space-y-3">
+                <div class="form-control">
+                    <label class="label"><span class="label-text">닉네임</span></label>
+                    <input type="text" th:field="*{nickname}" class="input input-bordered w-full"/>
+                    <p th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}" class="text-error text-sm"></p>
+                </div>
+                <div class="form-control">
+                    <label class="label"><span class="label-text">새 비밀번호 (변경 시에만 입력)</span></label>
+                    <input type="password" th:field="*{password}" class="input input-bordered w-full"/>
+                </div>
+                <button type="submit" class="btn btn-primary w-full">수정</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

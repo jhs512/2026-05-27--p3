@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <title>댓글 수정</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">댓글 수정</h2>
+            <form th:action="@{'/comments/' + ${comment.id} + '/edit'}" method="post" class="space-y-3">
+                <textarea name="content" rows="4" class="textarea textarea-bordered w-full"
+                          th:text="${comment.content}"></textarea>
+                <div class="flex gap-2">
+                    <button type="submit" class="btn btn-primary">수정</button>
+                    <a th:href="@{'/posts/' + ${comment.post.id}}" class="btn btn-ghost">취소</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
