@@ -1,18 +1,18 @@
-# Domain Docs
+# 도메인 문서
 
-How the engineering skills should consume this repo's domain documentation when exploring the codebase.
+엔지니어링 스킬이 코드베이스를 탐색할 때 이 저장소의 도메인 문서를 어떻게 소비해야 하는지.
 
-## Before exploring, read these
+## 탐색 전에 읽을 것
 
-- **`CONTEXT.md`** at the repo root, or
-- **`CONTEXT-MAP.md`** at the repo root if it exists — it points at one `CONTEXT.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`** — read ADRs that touch the area you're about to work in. In multi-context repos, also check `src/<context>/docs/adr/` for context-scoped decisions.
+- 저장소 루트의 **`CONTEXT.md`**, 또는
+- 루트에 있다면 **`CONTEXT-MAP.md`** — 컨텍스트별 `CONTEXT.md`를 가리킴. 주제와 관련된 것을 각각 읽음.
+- **`docs/adr/`** — 작업할 영역과 맞닿은 ADR을 읽음. 다중 컨텍스트 저장소라면 컨텍스트 범위 결정사항이 있는 `src/<context>/docs/adr/`도 확인.
 
-If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The producer skill (`/grill-with-docs`) creates them lazily when terms or decisions actually get resolved.
+이 파일들이 없으면 **조용히 진행**. 부재를 알리지 말고, 미리 생성을 제안하지도 말 것. 생산자 스킬(`/grill-with-docs`)이 용어나 결정이 실제로 정해질 때 지연 생성함.
 
-## File structure
+## 파일 구조
 
-This repo is **single-context**:
+이 저장소는 **단일 컨텍스트**:
 
 ```
 /
@@ -23,16 +23,16 @@ This repo is **single-context**:
 └── src/
 ```
 
-(For reference, a multi-context repo would have a `CONTEXT-MAP.md` at the root pointing at per-context `CONTEXT.md` files under `src/<context>/`, with context-scoped `src/<context>/docs/adr/` directories.)
+(참고로, 다중 컨텍스트 저장소라면 루트에 `CONTEXT-MAP.md`가 있고 `src/<context>/` 아래 컨텍스트별 `CONTEXT.md` 파일들을 가리키며, 컨텍스트 범위의 `src/<context>/docs/adr/` 디렉터리를 가짐.)
 
-## Use the glossary's vocabulary
+## 용어집의 어휘 사용
 
-When your output names a domain concept (in an issue title, a refactor proposal, a hypothesis, a test name), use the term as defined in `CONTEXT.md`. Don't drift to synonyms the glossary explicitly avoids.
+출력이 도메인 개념을 명명할 때 (이슈 제목, 리팩터 제안, 가설, 테스트 이름), `CONTEXT.md`에 정의된 용어를 사용. 용어집이 명시적으로 피하는 동의어로 흘러가지 말 것.
 
-If the concept you need isn't in the glossary yet, that's a signal — either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/grill-with-docs`).
+필요한 개념이 아직 용어집에 없다면 그것이 신호 — 프로젝트가 쓰지 않는 언어를 만들어내는 중이거나(재고할 것), 진짜 공백이 있는 것(`/grill-with-docs`용으로 기록).
 
-## Flag ADR conflicts
+## ADR 충돌 표시
 
-If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
+출력이 기존 ADR과 모순되면 조용히 덮지 말고 명시적으로 드러낼 것:
 
-> _Contradicts ADR-0007 (event-sourced orders) — but worth reopening because…_
+> _ADR-0007(event-sourced orders)과 모순 — 그러나 다음 이유로 재논의할 가치 있음…_

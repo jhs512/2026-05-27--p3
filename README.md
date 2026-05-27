@@ -19,7 +19,14 @@ msg=001 && git add . && git commit -m "$msg" && git tag $msg && git push origin 
 ```
 
 # /setup-matt-pocock-skills 로 하네스 세팅
+- `cd projects/p3`
+- `claude --dangerously-skip-permissions .`
+- `/setup-matt-pocock-skills`
 - 이슈관리 : 로컬 마크다운
 - 트리아지 라벨 어휘 : 기본
 - 도메인 문서 레이아웃 : 단일 컨텍스트
 - 진행할까요? : 진행
+
+# 문서 한글화
+- CLAUDE.md에서 `## Agent skills` 블록을 h2에서 h1으로 레벨업
+> CLUADE.md, docs/**/*.md 파일들을 한글화 해줘
